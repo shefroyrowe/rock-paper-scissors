@@ -29,16 +29,30 @@ function getComputerChoice(){
     Make your function’s playerSelection parameter case-insensitive 
     (so users can input rock, ROCK, RocK or any other variation).
 */
-const playerSelection = prompt('Rock Paper Scissors?:', 'rock');
+const playerSelection = prompt('Rock Paper Scissors?');
+const computerSelection = getComputerChoice();
 
 function playRound(playerSelection, computerSelection){
     let playerOp = playerSelection.toLowerCase();
+    let compOp = computerSelection;
 
-    if(playerOp === 'rock' || 
-      playerOp === 'paper' || 
-      playerOp === 'scissors'){
-       playerOp = playerOp;
-      } else {
-        return `Your input of ${playerOp} is invalid`;
-      }
+    if(compOp === playerOp){
+        alert('Aye! We have a draw y\'all!');
+    } else if(compOp == 'rock' && playerOp == 'scissors' || 
+                compOp == 'paper' && playerOp == 'rock'    || 
+                compOp == 'paper' && playerOp == 'rock'    ||
+                compOp == 'scissors' && playerOp == 'paper'){
+        alert(`You lost, ${compOp} beats ${playerOp}`);
+    } else if(playerOp == 'rock' && compOp == 'scissors' || 
+    playerOp == 'paper' && compOp == 'rock'    || 
+    playerOp == 'paper' && compOp == 'rock'    ||
+    playerOp == 'scissors' && compOp == 'paper'){
+        alert(`You've won!, ${playerOp} beats ${compOp}`);
+    } else {
+        alert(`${playerOp} invalid input, try again`);
+    }
 }
+
+//tester console log
+console.log(playRound(playerSelection, computerSelection));
+
