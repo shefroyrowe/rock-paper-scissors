@@ -1,57 +1,58 @@
- function game(){
- function playRound(playerSelection, getComputerChoice){
+//button control logic
+let buttons = document.querySelectorAll('button');
+buttons.forEach(button => {
+     button.onclick = game;
+ });
 
-    function getComputerChoice() {
-        let random = Math.floor(Math.random() * 3);
-        if (random === 0) {
-            return 'rock';
-        } else if (random === 1) {
-            return 'paper';
+ //game body
+function game(){ 
+    //get user choice
+    let playerOp = this.id;
+    console.log(`player: "${playerOp}"`); //log response
+
+    //get computer choice
+    let computerOp  = Math.floor(Math.random() * 3);
+        if (computerOp === 0) {
+            computerOp = 'rock';
+        } else if (computerOp === 1) {
+            computerOp = 'paper';
         } else {
-            return 'scissors';
-        }
-    }
+            computerOp = 'scissors';
+        };
+        console.log(`computer: "${computerOp}"`);//log computer choice
 
-    let rounds = 0;
-    let compScore = 0;
-    let playerScore = 0;
-    while (rounds < 5) {
-        
-       // playerSelection = prompt('Rock Paper or Scissors?')
-        playerOp = playerSelection.toLowerCase();
+        console.log(playRound(playerOp, computerOp));//show winner
 
-        let compOp = getComputerChoice();
-
+function playRound(playerOp, computerOp){
         //if both players pick the same value
-        if (compOp === playerOp) {
+        if (computerOp === playerOp) {
             alert('It\'s a draw!');
             //computer win logic
-        } else if (compOp == 'rock' && playerOp == 'scissors' ||
-            compOp == 'paper' && playerOp == 'rock' ||
-            compOp == 'scissors' && playerOp == 'paper') {
-            alert(`You lost, ${compOp} beats ${playerOp}`);
-            compScore++;
+        } else if (computerOp == 'rock' && playerOp == 'scissors' ||
+            computerOp == 'paper' && playerOp == 'rock' ||
+            computerOp == 'scissors' && playerOp == 'paper') {
+            alert(`You lost, ${computerOp} beats ${playerOp}`);
+            //compScore++;
             //player win logic
-        } else if (playerOp == 'rock' && compOp == 'scissors' ||
-            playerOp == 'paper' && compOp == 'rock' ||
-            playerOp == 'scissors' && compOp == 'paper') {
-            alert(`You've won!, ${playerOp} beats ${compOp}`);
-            playerScore++;
-        } else {
-            alert(`"${playerOp}" is invalid, reload to try again`);
+        } else if (playerOp == 'rock' && computerOp == 'scissors' ||
+            playerOp == 'paper' && computerOp == 'rock' ||
+            playerOp == 'scissors' && computerOp == 'paper') {
+            alert(`You've won!, ${playerOp} beats ${computerOp}`);
+            //playerScore++;
         }
-        //increment roundsplayed til 5
-        rounds++;
-     }
-     if(compScore > playerScore){
-        alert(`You scored ${playerScore}, computer wins`);
-     }else {
-        alert(`Computer scored ${compScore}, player wins!`);
-     }
-  }
-
-playRound();
+    }
  }
 
-game();
+ 
+/*
+ let rounds = 0;
+    let compScore = 0;
+    let playerScore = 0;
+    while (rounds < 5) {}
 
+ if(compScore > playerScore){
+    alert(`You scored ${playerScore}, computer wins`);
+ }else {
+    alert(`Computer scored ${compScore}, player wins!`);
+ }
+*/
