@@ -24,7 +24,7 @@ alert(intro);
 
 //game logic container
 function game(){ 
-   //get user response
+        //get user response
     let playerOp = this.id;
      
     //get computer response
@@ -40,7 +40,7 @@ function game(){
     //display player and computer response
     tooltip.textContent = `PLAYER: "${playerOp}"\n\nCOMPUTER: "${computerOp}"`;
     //reset announcement css visibility value to hidden
-    announcement.style.cssText = 'visibility: hidden';
+    announcement.style.cssText = 'display: none';
    
         //gameplay logic
         if (computerOp === playerOp) { //if both players pick the same value
@@ -65,7 +65,7 @@ function game(){
             display.textContent = `Wins ${playerScore}, draws ${draws}, losses ${computerScore}`;
             //set announcement text content and css visibily value for win
             announcement.textContent = 'WINNER!!';
-            announcement.style.cssText = 'visibility: visible';
+            announcement.style.cssText = 'display: unset';
 
             playerScore = 0;
             computerScore = 0;
@@ -76,14 +76,14 @@ function game(){
             display.textContent = `You Won ${playerScore}, had ${draws} draws, and ${computerScore} losses`;
             //set announcement text content and css value visibily for loss
             announcement.textContent = 'YOU LOSE';
-            announcement.style.cssText = 'visibility: visible';
+            announcement.style.cssText = 'display: unset';
 
             playerScore = 0;
             computerScore = 0;
             draws = 0;
             return; //break and restart if...else
         }
-    } 
+    }
    
 
 
