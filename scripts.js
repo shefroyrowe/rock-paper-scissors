@@ -1,58 +1,67 @@
-//button control logic
-let buttons = document.querySelectorAll('button');
-buttons.forEach(button => {
-     button.onclick = game;
- });
+//counters
+let draws = 0;
+let computerScore = 0;
+let playerScore = 0;
+//reference html display area for results
+let display = document.querySelector('.display');
+let intro = "Get ready! five rounds! -ROCK- -PAPER- -SCISSORS- Lets go!!!"
+alert(intro)
 
- //game body
+ //user button controls
+    let buttons = document.querySelectorAll('button');
+    buttons.forEach(button => {
+    button.onclick = game;
+    });
+
+//game logic container
 function game(){ 
-    //get user choice
-    let playerOp = this.id;
-    console.log(`player: "${playerOp}"`); //log response
+   
+    let playerOp = this.id;//get user response
+    alert(`player: "${playerOp}"`); //alert user response
+    
+    let computerOp = Math.floor(Math.random() * 3);//get computer response
+    if (computerOp === 0) {
+        computerOp = 'rock';
+    } else if (computerOp === 1) {
+        computerOp = 'paper';
+    } else {
+        computerOp = 'scissors';
+    }
+    alert(`computer: "${computerOp}"`);//alert computer response
+   
+        //game logic
+        if (computerOp === playerOp) { //if both players pick the same value
+            draws++;
+            display.textContent = 'It\'s a draw!';
 
-    //get computer choice
-    let computerOp  = Math.floor(Math.random() * 3);
-        if (computerOp === 0) {
-            computerOp = 'rock';
-        } else if (computerOp === 1) {
-            computerOp = 'paper';
-        } else {
-            computerOp = 'scissors';
-        };
-        console.log(`computer: "${computerOp}"`);//log computer choice
-
-        console.log(playRound(playerOp, computerOp));//show winner
-
-function playRound(playerOp, computerOp){
-        //if both players pick the same value
-        if (computerOp === playerOp) {
-            alert('It\'s a draw!');
-            //computer win logic
-        } else if (computerOp == 'rock' && playerOp == 'scissors' ||
+        } else if (computerOp == 'rock' && playerOp == 'scissors' || //computer win logic
             computerOp == 'paper' && playerOp == 'rock' ||
             computerOp == 'scissors' && playerOp == 'paper') {
-            alert(`You lost, ${computerOp} beats ${playerOp}`);
-            //compScore++;
-            //player win logic
-        } else if (playerOp == 'rock' && computerOp == 'scissors' ||
+            computerScore++;
+            display.textContent = `${computerOp} beats ${playerOp}, computer: ${computerScore} points`;//update display
+
+        } else if (playerOp == 'rock' && computerOp == 'scissors' || //player win logic
             playerOp == 'paper' && computerOp == 'rock' ||
             playerOp == 'scissors' && computerOp == 'paper') {
-            alert(`You've won!, ${playerOp} beats ${computerOp}`);
-            //playerScore++;
+            playerScore++;
+            display.textContent = `${playerOp} beats ${computerOp}, player: ${playerScore} points`;//update display
+        }
+        if((draws + computerScore + playerScore) == 5){
+            display.textContent = `You've won ${playerScore} times, drawn ${draws} times and lost ${computerScore} times.`
+
+            playerScore = 0;
+            computerScore = 0;
+            draws = 0;
         }
     }
- }
 
- 
-/*
- let rounds = 0;
-    let compScore = 0;
-    let playerScore = 0;
-    while (rounds < 5) {}
+    /*
+      add rock, paper and scissor images respectively
+      switch info from alerts over to tooltip div
 
- if(compScore > playerScore){
-    alert(`You scored ${playerScore}, computer wins`);
- }else {
-    alert(`Computer scored ${compScore}, player wins!`);
- }
-*/
+      add computer wins or players wins to tooltip dive after five rounds
+    */
+    
+
+
+   
