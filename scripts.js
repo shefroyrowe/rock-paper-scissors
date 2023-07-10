@@ -10,11 +10,6 @@ let tooltip = document.querySelector('.tooltip');
 //reference html win-lose announcement element
 let announcement = document.querySelector('.win-lose');
 
-//introduction 
-
-let intro = "GET READY! 5 ROUNDS! -ROCK- -PAPER- -SCISSORS- LETS GO!!!";
-alert(intro);
-
 
  //user button controls
     let buttons = document.querySelectorAll('button');
@@ -22,8 +17,12 @@ alert(intro);
     button.onclick = game;
     });
 
+let intro = 'Lets Play!! Rock, Paper, Scissors!';
+alert(intro);
+
 //game logic container
 function game(){ 
+    
         //get user response
     let playerOp = this.id;
      
@@ -42,6 +41,7 @@ function game(){
     //reset announcement css visibility value to hidden
     announcement.style.cssText = 'display: none';
    
+
         //gameplay logic
         if (computerOp === playerOp) { //if both players pick the same value
             draws++;
@@ -70,7 +70,6 @@ function game(){
             playerScore = 0;
             computerScore = 0;
             draws = 0;
-            return; //break and restart if...else
 
         }else if((draws + computerScore + playerScore) == 5 && playerScore < computerScore){
             display.textContent = `You Won ${playerScore}, had ${draws} draws, and ${computerScore} losses`;
@@ -81,9 +80,16 @@ function game(){
             playerScore = 0;
             computerScore = 0;
             draws = 0;
-            return; //break and restart if...else
-        }
-    }
+        }//end if...else
+        
+    }//end game()
+
+
+    //notes for update//
+    
+    //add sound effects to elements 
+    //add sound effects to win or lose event
+    //add refresh button at 5 count
    
 
 

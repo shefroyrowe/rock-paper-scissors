@@ -53,6 +53,8 @@ body {
 
 button {
     border-radius: 10px;
+    height: 120px;
+    width: 120px;
 }
 
 img {
@@ -61,8 +63,8 @@ img {
 }
 
 img:hover {
-    transform: scale(1.5,1.5);
-    transition: 1s ease;
+    transform: translateY(10%);
+    animation: 3s linear;
 }
 
 #tagline {
