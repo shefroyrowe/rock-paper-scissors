@@ -5,6 +5,9 @@ body {
     font-family: 'Courier New', Courier, monospace;
     font-size: 1.3rem;
     font-weight: 800;
+    height: 100vh;
+    overflow: hidden;
+    text-align: center;
 }
 
 .container {
@@ -17,7 +20,7 @@ body {
 
 .display{
     width: 600px;
-    height: 104px;
+    height: 50px;
     text-align: center;
     padding: 60px 20px 20px 20px;
     background-color: bisque;
@@ -60,5 +63,10 @@ img {
 img:hover {
     transform: scale(1.5,1.5);
     transition: 1s ease;
+}
+
+#tagline {
+    color: #fff;
+    text-shadow: 2px 2px 5px #0ff;
 }
 
