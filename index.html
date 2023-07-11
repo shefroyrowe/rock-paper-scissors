@@ -9,11 +9,18 @@
     </head>
     <body>
         <div class="container">
+            <!--header tag-->
             <h1 id="tagline">Play Rock, Paper, Scissors!<br> Best of 5!</h1>
+
+            <!--page reload button-->
+            <button class="reload">play again?<br>RELOAD</button>
+
+            <!--announcement display area-->
             <div class="win-lose"></div>
 
+            <!--player vs computer display area-->
             <div class="tooltip"></div>
-
+        <!--buttons (user options)-->
         <span id="btn-wrap">
             <button id="rock">
                 <img src="images/rock-clipart.png" alt="rock clipart">
@@ -26,9 +33,17 @@
             </button>
         </span>
 
+        <!--display score-->
             <div class="display"></div>
         </div>
+
+        <!--game audio files-->
+        <audio id="lose-game" src="audio/lose-game.mp3"></audio>
+        <audio id="win-game" src="audio/win-game.mp3"></audio>
+        <audio id="pick-rock" src="audio/pick-rock.mp3"></audio>
+        <audio id="pick-paper" src="audio/pick-paper.mp3"></audio>
+        <audio id="pick-scissors" src="audio/pick-scissors.mp3"></audio>
         
-        <script src="scripts.js" async defer></script>
+        <script src="scripts.js" defer></script>
     </body>
 </html>

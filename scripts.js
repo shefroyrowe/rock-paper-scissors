@@ -10,12 +10,25 @@ let tooltip = document.querySelector('.tooltip');
 //reference html win-lose announcement element
 let announcement = document.querySelector('.win-lose');
 
+//game sounds
+let winAud = document.querySelector('#win-game');
+let loseAud = document.querySelector('#lose-game');
+let rockAud = document.querySelector('#pick-rock');
+let paperAud = document.querySelector('#pick-paper');
+let scissorAud = document.querySelector('#pick-scissors');
 
  //user button controls
     let buttons = document.querySelectorAll('button');
     buttons.forEach(button => {
     button.onclick = game;
     });
+
+    //refresh function
+    function refresh(){
+        window.location.reload();
+    }
+    let reload = document.querySelector('.reload');
+    reload.addEventListener('click', refresh); 
 
 let intro = 'Lets Play!! Rock, Paper, Scissors!';
 alert(intro);
@@ -25,6 +38,18 @@ function game(){
     
         //get user response
     let playerOp = this.id;
+
+    //add audio to user response
+    if(playerOp == 'rock'){
+        rockAud.currentTime = 0;
+        rockAud.play();
+    }else if(playerOp == 'paper'){
+        paperAud.currentTime = 0;
+        paperAud.play();
+    }else if(playerOp == 'scissors'){
+        scissorAud.currentTime = 0;
+        scissorAud.play();
+    }
      
     //get computer response
     let computerOp = Math.floor(Math.random() * 3);
@@ -67,9 +92,16 @@ function game(){
             announcement.textContent = 'WINNER!!';
             announcement.style.cssText = 'display: unset';
 
+            //add wingame audio
+            winAud.currentTime = 0;
+            winAud.play();
+
             playerScore = 0;
             computerScore = 0;
             draws = 0;
+
+            //refresh page
+            reload.style.display = 'unset';
 
         }else if((draws + computerScore + playerScore) == 5 && playerScore < computerScore){
             display.textContent = `You Won ${playerScore}, had ${draws} draws, and ${computerScore} losses`;
@@ -77,19 +109,28 @@ function game(){
             announcement.textContent = 'YOU LOSE';
             announcement.style.cssText = 'display: unset';
 
+            //add losegame audio
+            loseAud.currentTime = 0;
+            loseAud.play();
+
             playerScore = 0;
             computerScore = 0;
             draws = 0;
+
+            //refresh page
+            reload.style.display = 'unset';
         }//end if...else
         
     }//end game()
 
 
-    //notes for update//
+    //notes for update v.2.0//
     
-    //add sound effects to elements 
-    //add sound effects to win or lose event
-    //add refresh button at 5 count
+    //add sound effects to elements (**complete)
+
+    //add sound effects to win or lose event (**complete)
+
+    //add refresh button at 5 count (**complete)
    
 
 
