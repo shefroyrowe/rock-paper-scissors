@@ -4,7 +4,8 @@
     box-sizing: border-box;
 }
 
-html,body {
+html,
+body {
     height: 100vh;
     width: 100vw;
     display: grid;
@@ -13,7 +14,6 @@ html,body {
 
 body {
     background-color: black;
-    color: blue;
 }
 
 .container {
@@ -26,7 +26,8 @@ body {
     object-fit: cover;
 }
 
-.screen, .buttons {
+.screen,
+.button-container {
     position: absolute;
 }
 
@@ -37,4 +38,46 @@ body {
     top: 36%;
     left: 43.5%;
     border-radius: 6px;
+}
+
+.button-container {
+    height: 12%;
+    width: 17%;
+    top: 61%;
+    left: 42%;
+    font-size: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    color: blue;
+}
+
+.game-btn {
+    position: relative;
+}
+
+.game-btn:active {
+    text-shadow: 5px 4px 3px rgba(0,0,0,0.6);
+}
+
+.game-btn:first-child {
+    top: -.3rem;
+    left: -.9rem;
+}
+
+.game-btn:nth-child(2) {
+    bottom: -.6rem;
+    right: .3rem;
+}
+
+.game-btn:nth-child(3) {
+    top: -.3rem;
+    right: -.2rem;
+}
+
+.game-btn p {
+    font-size: 1rem;
+    color: black;
+
+    text-shadow: 2px 2px 3px rgba(0,0,0,0.8);
 }
