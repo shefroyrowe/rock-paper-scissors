@@ -49,30 +49,31 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    color: blue;
+    color: transparent;
 }
 
 .game-btn {
     position: relative;
+    cursor: pointer;
 }
 
 .game-btn:active {
-    text-shadow: 5px 4px 3px rgba(0,0,0,0.6);
+    text-shadow: 5px 4px 3px rgba(0,0,0,0.5);
 }
 
 .game-btn:first-child {
-    top: -.3rem;
-    left: -.9rem;
+    top: -.5rem;
+    left: -1.1rem;
 }
 
 .game-btn:nth-child(2) {
-    bottom: -.6rem;
-    right: .3rem;
+    bottom: -.4rem;
+    right: .6rem;
 }
 
 .game-btn:nth-child(3) {
-    top: -.3rem;
-    right: -.2rem;
+    top: -.5rem;
+    left: -.2rem;
 }
 
 .game-btn p {
